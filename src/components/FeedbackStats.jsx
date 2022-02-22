@@ -1,3 +1,4 @@
+import { addScaleCorrection } from "framer-motion";
 import { useContext } from "react";
 import FeedbackContext from "../context/FeedbackContext";
 
@@ -6,7 +7,7 @@ function FeedbackStats() {
 
   let average =
     feedback.reduce((acc, cur) => {
-      return acc + cur.rating;
+      return acc + parseInt(cur.rating);
     }, 0) / feedback.length;
 
   average = average.toFixed(1).replace(/[.,]0$/, "");
